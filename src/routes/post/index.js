@@ -3,11 +3,21 @@ import style from './style';
 import Backend from '../../lib/Backend'
 import { Link } from 'preact-router/match';
 
+import PostRead from 'async!../../components/postRead';
+import PostEdit from 'async!../../components/postEdit';
 
-export default class Home extends Component {
+export default class Post extends Component {
     constructor() {
         super();
         this.state = { editMode: false, post: {}};
+    }
+
+    toggleEditMode = () => {
+
+        let tempFlag = this.state.editMode
+
+        this.setState({ editMode: !tempFlag });
+        console.log(this.state.editMode)
     }
 
     componentWillMount () {
@@ -17,20 +27,30 @@ export default class Home extends Component {
     }
 
     render() {
+        
+        let postView = null
+
+        if (this.state.editMode) {
+            postView = <PostEdit postData={this.state.post} />;
+        } else {
+            postView = <PostRead postData={this.state.post} />;
+        }
+
         return (
             <div class={style.home}>
-                <h1> Post Details: </h1>
-                <p> {this.state.post.title} </p>
-                <img src= {this.state.post.thumb} alt='what dis?'/>
-                <p> {this.state.post.content} </p>
 
-                <Link href={"/profile/me"}>
-                     <button type="button"> Edit Post </button>
-                </Link>                
+                {postView}
 
-                <Link href={"/profile/me"}>
-                     <button type="button"> Delete Post </button>
-                </Link>
+                <button type="button" onClick={this.toggleEditMode}> Edit Post </button>
+
+                <button type="button" onClick={this.deletePost}> Delete Post </button>
+
+                <ul>
+                    <li> Comment 1 </li>
+                    <li> Comment 2 </li>
+                    <li> Comment 3 </li>
+                </ul>
+
             </div>
 
 
