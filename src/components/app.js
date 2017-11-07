@@ -2,10 +2,9 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
 import Header from './header';
-// import Home from '../routes/home';
-// import Profile from '../routes/profile';
 import Home from 'async!../routes/home';
 import Profile from 'async!../routes/profile';
+import Post from 'async!../routes/post';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -24,6 +23,7 @@ export default class App extends Component {
 					<Home path="/" />
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
+					<Post path="/post/1" />
 				</Router>
 			</div>
 		);

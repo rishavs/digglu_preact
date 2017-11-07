@@ -1,37 +1,26 @@
 import { h, Component } from 'preact';
 import style from './style';
-// import Posts from '../../lib/Post'
+import Backend from '../../lib/Backend'
 
 
 export default class Home extends Component {
     constructor() {
         super();
-        this.state = { postsList: [] };
+        this.state = { post: {}};
     }
 
     componentWillMount () {
-        fetch('https://data.diesel16.hasura-app.io/v1/template/get_all_posts')
-			.then( response => response.json() )
-          	.then( postsList => {
-            	this.setState({ postsList });
-          	})
-          	.catch( error => {
-            	console.log(error);
-          	});
+        Backend.get_current_post(1).then(item => {
+            this.setState({ post:item });
+        })
     }
 
     render(props, state) {
         return (
             <div class={style.home}>
-                <h1>Home</h1>
-                <p>This is the Home component.</p>
-
-                <ul>
-                    { state.postsList.map( post => (
-                        <li>{post.title}</li>
-                    )) }
-                </ul>
-
+                <h1> Post </h1>
+                <p> {post.title} </p>
+                <p> {post.content} </p>
             </div>
         );
     }
