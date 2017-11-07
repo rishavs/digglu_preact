@@ -23,7 +23,7 @@ export default class App extends Component {
 					<Home path="/" />
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
-					<Post path="/post/1" />
+					<Post path="/post/:id" />
 				</Router>
 			</div>
 		);
