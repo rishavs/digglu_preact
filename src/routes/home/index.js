@@ -16,16 +16,16 @@ export default class Home extends Component {
 		})
     }
 
-    render(props, state) {
+    render() {
         return (
             <div class={style.home}>
                 <h1>Home</h1>
                 <p>This is the Posts List.</p>
 
                 <ul>
-                    { state.posts.map( post => (
+                    { this.state.posts.map( post => (
                         <li>
-                            <Link href={'/posts/' + post.id}>{post.title}</Link>
+                            <Link href={'/post/' + post.id}>{post.title}</Link>
                         </li>
                     )) }
                 </ul>

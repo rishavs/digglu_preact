@@ -14,17 +14,6 @@ var Backend = {
 	    const json = await response.json();
 	    return json
 	},
-
-	get_post: async function(id) {
-		fetch('https://api.github.com/gists', {
-		    method: 'post',
-		    body: JSON.stringify(opts)
-		  }).then(function(response) {
-		    return response.json();
-		  }).then(function(data) {
-		    console.log('data.content');
-		  });
-		}
 }
 
 export default Backend

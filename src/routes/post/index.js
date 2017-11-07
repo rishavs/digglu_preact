@@ -10,17 +10,17 @@ export default class Home extends Component {
     }
 
     componentWillMount () {
-        Backend.get_current_post(1).then(item => {
-            this.setState({ post:item });
+        Backend.get_current_post(this.props.id).then(item => {
+            this.setState({ post:item[0] });
         })
     }
 
-    render(props, state) {
+    render() {
         return (
             <div class={style.home}>
-                <h1> Post </h1>
-                <p> {post.title} </p>
-                <p> {post.content} </p>
+                <h1> Posts </h1>
+                <p> {this.state.post.title} </p>
+                <p> {this.state.post.content} </p>
             </div>
         );
     }
