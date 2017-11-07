@@ -6,9 +6,12 @@ export default class Header extends Component {
 	render() {
 		return (
 			<header class={style.header}>
-				<h1>Preact App</h1>
+
+				<Link activeClassName={style.active} href="/">
+					<h1>Home</h1>
+				</Link>
+
 				<nav>
-					<Link activeClassName={style.active} href="/">Home</Link>
 					<Link activeClassName={style.active} href="/profile">Me</Link>
 					<Link activeClassName={style.active} href="/profile/john">John</Link>
 					<Link activeClassName={style.active} href="/p/new">New Post</Link>

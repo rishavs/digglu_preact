@@ -1,12 +1,13 @@
 import { h, Component } from 'preact';
 import style from './style';
 import Backend from '../../lib/Backend'
+import { Link } from 'preact-router/match';
 
 
 export default class Home extends Component {
     constructor() {
         super();
-        this.state = { post: {}};
+        this.state = { editMode: false, post: {}};
     }
 
     componentWillMount () {
@@ -18,10 +19,21 @@ export default class Home extends Component {
     render() {
         return (
             <div class={style.home}>
-                <h1> Posts </h1>
+                <h1> Post Details: </h1>
                 <p> {this.state.post.title} </p>
+                <img src= {this.state.post.thumb} alt='what dis?'/>
                 <p> {this.state.post.content} </p>
+
+                <Link href={"/profile/me"}>
+                     <button type="button"> Edit Post </button>
+                </Link>                
+
+                <Link href={"/profile/me"}>
+                     <button type="button"> Delete Post </button>
+                </Link>
             </div>
+
+
         );
     }
 }
