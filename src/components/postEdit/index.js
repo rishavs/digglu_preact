@@ -7,20 +7,22 @@ import style from './style';
 
 export default class PostForm extends Component {
 
-    render( { postData }) {
+    render( props, postData) {
         return (
             <div class={style.home}>
                 <h1> EDIT Post Details: </h1>
                 
                 <label>
                     Title:
-                    <input type="text" value={postData.title} />
+                    <input type="text" value={props.postData.title} />
                 </label>
 
                 <label>
                     Content:
-                    <textarea value={postData.content} />
+                    <textarea value={props.postData.content} />
                 </label>
+
+                <button type="button" onClick={ props.onTogl }> Save Post </button>
 
             </div>
         );
