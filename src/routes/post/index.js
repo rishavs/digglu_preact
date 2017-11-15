@@ -20,6 +20,21 @@ export default class Post extends Component {
         console.log(this.state.editMode)
     }
 
+    // before the component gets mounted to the DOM
+    componentWillMount() {} 
+    // after the component gets mounted to the DOM
+    componentDidMount() {}
+    // prior to removal from the DOM
+    componentWillUnmount() {}
+    // before new props get accepted
+    componentWillReceiveProps() {}
+    // before render(). Return false to skip render
+    shouldComponentUpdate() {}
+    // before render()
+    componentWillUpdate(){}
+    // after render()
+    componentDidUpdate(){}
+
     componentWillMount () {
         Backend.get_current_post(this.props.id).then(item => {
             this.setState({ post:item[0] });
@@ -39,11 +54,10 @@ export default class Post extends Component {
         return (
             <div class={style.home}>
 
-                {postView}
-
                 <button type="button" onClick={this.toggleEditMode}> Edit Post </button>
-
                 <button type="button" onClick={this.deletePost}> Delete Post </button>
+                
+                {postView}
 
                 <ul>
                     <li> Comment 1 </li>
@@ -57,3 +71,27 @@ export default class Post extends Component {
         );
     }
 }
+
+
+// function Child(props) {
+//     return (
+//         <div>
+//             <h1>Current: { props.value }</h1>
+//             <button onclick={ props.onIncr } value="+1" />
+//             <button onclick={ props.onDecr } value="-1" />
+//         </div>
+//     )
+// }
+
+// class Parent extends Component {
+//     state = { val:0 }
+
+//     increase = _ => this.setState({ val:this.state.val + 1 })
+//     decrease = _ => this.setState({ val:this.state.val - 1 })
+
+//     render(_, state) {
+//         return (
+//             <Child value={ state.val } onIncr={ this.increase } onDecr={ this.decrease } />
+//         )
+//     }
+// }

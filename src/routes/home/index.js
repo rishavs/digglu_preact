@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import style from './style';
 import Backend from '../../lib/Backend'
 import { Link } from 'preact-router/match';
-
+import NProgress from 'NProgress'
 
 export default class Home extends Component {
     constructor() {
@@ -19,8 +19,7 @@ export default class Home extends Component {
     render() {
         return (
             <div class={style.home}>
-                <h1>Home</h1>
-                <p>This is the Posts List.</p>
+                <h1>Posts List</h1>
 
                 <ul>
                     { this.state.posts.map( post => (

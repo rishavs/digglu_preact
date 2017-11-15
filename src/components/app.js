@@ -1,6 +1,8 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
+import NProgress from 'NProgress'
+
 import Header from './header';
 import Home from 'async!../routes/home';
 import Profile from 'async!../routes/profile';

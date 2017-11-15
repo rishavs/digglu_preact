@@ -11,9 +11,17 @@ export default class PostForm extends Component {
         return (
             <div class={style.home}>
                 <h1> EDIT Post Details: </h1>
+                
+                <label>
+                    Title:
+                    <input type="text" value={postData.title} />
+                </label>
 
-                <p> {postData.title} </p>
-                <p> {postData.content} </p>
+                <label>
+                    Content:
+                    <textarea value={postData.content} />
+                </label>
+
             </div>
         );
     }
