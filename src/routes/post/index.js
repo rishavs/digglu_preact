@@ -2,8 +2,8 @@ import { h, Component } from 'preact';
 import style from './style';
 import Backend from '../../lib/Backend';
 
-import PostRead from 'async!../../components/postRead';
-import PostEdit from 'async!../../components/postEdit';
+import PostRead from '../../components/postRead';
+import PostEdit from '../../components/postEdit';
 
 export default class Post extends Component {
 	constructor() {
@@ -43,7 +43,7 @@ export default class Post extends Component {
     	let postView = null;
 
     	if (this.state.editMode) {
-    		postView = <PostEdit postData={this.state.post} onTogl={this.toggleEditMode} />;
+    		postView = <PostEdit postData={this.state.post} />;
     	}
     	else {
     		postView = <PostRead postData={this.state.post} onTogl={this.toggleEditMode} />;

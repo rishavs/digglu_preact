@@ -5,7 +5,7 @@ import style from './style';
 
 // various props to use here will be type (new, edit, read) and post (empty, {})
 
-export default class PostForm extends Component {
+export default class PostRead extends Component {
 
     render( props ) {
         return (
