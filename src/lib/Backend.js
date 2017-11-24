@@ -16,12 +16,12 @@ var Backend = {
 	},
 
 	save_current_post: async function(item){
-	    const response = await fetch("https://data.diesel16.hasura-app.io/v1/template/save_post", {
+	    const response = await fetch("https://data.diesel16.hasura-app.io/v1/template/update_post", {
 		    method: 'post',
 		    body: JSON.stringify({	
-		    	"id": item.id,
-		    	"title": item.title,
-		    	"content": item.content,
+		    	id: item.id,
+		    	title: item.title,
+		    	content: item.content,
 		    })
 	  	})
 	    const json = await response.json();

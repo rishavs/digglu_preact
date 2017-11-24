@@ -1,21 +1,25 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 import style from './style';
-
 import linkState from 'linkstate';
+
+import Backend from '../../lib/Backend';
 
 export default class PostEdit extends Component {
     constructor(props) {
         super();
         this.state = {
-            postId: props.postData.id,
-            postTitle: props.postData.title,
-            postContent: props.postData.content
+            id: props.postData.id,
+            title: props.postData.title,
+            content: props.postData.content
         };
     }
 
     handleSubmit = (event) => {
-        alert(this.state.postTitle);
+        // alert(JSON.stringify(this.state));
+        Backend.save_current_post(this.state)
+        .then(res => { console.log(res) })
+        .then( route ('/'));
     }
 
     render( ) {
@@ -25,10 +29,10 @@ export default class PostEdit extends Component {
                
                 <form onSubmit={this.handleSubmit}>
                     <label>Title:</label>
-                    <input value={this.state.postTitle} onInput={linkState(this, 'postTitle')} />
+                    <input value={this.state.title} onInput={linkState(this, 'title')} />
 
                     <label> Content:</label>
-                    <textarea value={this.state.postContent} onInput={linkState(this, 'postContent')} />
+                    <textarea value={this.state.content} onInput={linkState(this, 'content')} />
                     
                     <button type="submit"> Save Post </button>
                 </form>
