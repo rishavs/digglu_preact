@@ -8,6 +8,10 @@ import Home from 'async!../routes/home';
 import Profile from 'async!../routes/profile';
 import Post from 'async!../routes/post';
 
+// import '../assets/mini-nord.min.css'
+// import '../assets/tachyons.min.css'
+// import 'bulma/css/bulma.css'
+
 export default class App extends Component {
 	/** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)

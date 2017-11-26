@@ -21,13 +21,19 @@ export default class Home extends Component {
             <div class={style.home}>
                 <h1>Posts List</h1>
 
-                <ul>
+
                     { this.state.posts.map( post => (
-                        <li>
-                            <Link href={'/post/' + post.id}>{post.title}</Link>
-                        </li>
+
+                        <div class="row">
+                            <div class="card">
+                                <div class="section">
+                                    <a href={'/post/' + post.id}><h3>{post.title}</h3></a>
+                                    <p>{post.content}</p>
+                                </div>
+                            </div>
+                        </div>
                     )) }
-                </ul>
+
 
             </div>
         );

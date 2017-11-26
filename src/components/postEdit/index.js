@@ -18,7 +18,7 @@ export default class PostEdit extends Component {
     handleSubmit = (event) => {
         // alert(JSON.stringify(this.state));
         Backend.save_current_post(this.state)
-        .then(res => { console.log(res) })
+        // .then(res => { console.log(res) })
         .then( route ('/'));
     }
 

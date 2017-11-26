@@ -16,7 +16,7 @@ export default class Post extends Component {
     	let tempFlag = this.state.editMode;
 
     	this.setState({ editMode: !tempFlag });
-    	console.log(this.state.editMode);
+    	// console.log(this.state.editMode);
     }
 
     // before the component gets mounted to the DOM
