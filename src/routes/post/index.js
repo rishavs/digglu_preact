@@ -13,9 +13,7 @@ export default class Post extends Component {
 
     toggleEditMode = () => {
 
-    	let tempFlag = this.state.editMode;
-
-    	this.setState({ editMode: !tempFlag });
+     	this.setState({ editMode: !this.state.editMode });
     	// console.log(this.state.editMode);
     }
 

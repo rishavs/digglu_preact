@@ -7,6 +7,8 @@ import Header from './header';
 import Home from 'async!../routes/home';
 import Profile from 'async!../routes/profile';
 import Post from 'async!../routes/post';
+import PostNew from 'async!../routes/post/new';
+import Login from 'async!../routes/login';
 
 // import '../assets/mini-nord.min.css'
 // import '../assets/tachyons.min.css'
@@ -30,6 +32,8 @@ export default class App extends Component {
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
 					<Post path="/post/:id" />
+					<Post path="/post/new" />
+					<Login path="/login" />
 				</Router>
 			</div>
 		);

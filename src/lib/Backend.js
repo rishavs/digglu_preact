@@ -34,6 +34,23 @@ var Backend = {
 	  	})
 	    const json = await response.json();
 	    return json
+	},	
+	login: async function(item){
+		try {
+		    const response = await fetch("https://auth.diesel16.hasura-app.io/login", {
+			    method: 'post',
+			    body: JSON.stringify({
+			    	"username": item.uname,
+			     	"password": item.pwd			  
+				})
+		  	})
+		    const json = await response.json();
+		    console.log(json)
+		    return json
+		}
+		catch (error) {
+			console.log(error)
+		}
 	},
 }
 
