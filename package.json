@@ -26,10 +26,13 @@
     "tachyons": "^4.9.0"
   },
   "dependencies": {
+    "firebase": "^4.6.2",
     "linkstate": "^1.1.0",
+    "mongodb-stitch": "^2.2.0",
     "nprogress": "^0.2.0",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
+    "preact-context-provider": "^1.0.0",
     "preact-progress": "^1.0.0",
     "preact-router": "^2.6.0"
   }

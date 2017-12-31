@@ -10,11 +10,31 @@ export default class Home extends Component {
         this.state = { posts: [] };
     }
 
-    componentWillMount () {
-		Backend.get_all_posts().then(items => {
-		    this.setState({ posts:items });
-		})
+    // componentWillMount () {
+		// Backend.get_all_posts().then(items => {
+		//     this.setState({ posts:items });
+		// })
+    // }
+
+    // before the component gets mounted to the DOM
+    componentWillMount(){
+        Backend.get_all_posts().then(items => {
+            console.log(items)
+            this.setState({ posts:items });
+        })
     }
+    // after the component gets mounted to the DOM
+    componentDidMount() {};
+    // before new props get accepted
+    componentWillReceiveProps() {}
+    // before render(). Return false to skip render
+    shouldComponentUpdate() {}
+    // before render()
+    componentWillUpdate(){}
+    // after render()
+    componentDidUpdate(){}
+    // prior to removal from the DOM
+    componentWillUnmount() {}
 
     render() {
         return (

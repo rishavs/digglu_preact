@@ -2,8 +2,14 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 import style from './style';
 
+import { auth, googleAuthProvider } from '../../lib/FireBaseConfig';
+
 export default class Header extends Component {
-	render() {
+
+	render(props, state, context) {
+
+		console.log(context.glob);
+
 		return (
 			<header class="w-100 dt pa3 ph5-ns bg-near-black">
 				<div class="dtc v-mid tl w-50">
@@ -12,7 +18,7 @@ export default class Header extends Component {
 				<nav class="dc dtc v-mid w-100 tr">
 					<a class="f6 fw6 dim link light-gray mr1 mr3-m mr4-l dib" href="/post/new">New Post</a>
 					<a class="f6 fw6 dim link light-gray mr1 mr3-m mr4-l dib" href="/login">Login</a>
-					<a class="f6 link dim br2 ba bw1 ph3 pv2 mb2 dib light-gray" href="#0">Signup</a>
+					<a class="f6 link dim br2 ba bw1 ph3 pv2 mb2 dib light-gray" href="#0">Logout</a>
 
 				</nav>
 			</header>

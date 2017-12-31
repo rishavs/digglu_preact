@@ -9,11 +9,6 @@ export default class Login extends Component {
 		this.state = { uname: "", pwd:"" };
 	}
 
-
-    handleSubmit = (event) => {
-        Backend.login(this.state)
-    }
-
     // before the component gets mounted to the DOM
     componentWillMount() {}
     // after the component gets mounted to the DOM
@@ -29,9 +24,13 @@ export default class Login extends Component {
     // prior to removal from the DOM
     componentWillUnmount() {}
 
+    handleSubmit = (event) => {
+        console.log(this.state.uname, this.state.pwd)
+        Backend.login(this.state.uname, this.state.pwd)
+        event.preventDefault();
+    }
+
     render() {
-
-
     	return (
             <main class="pa4 black-80">
                 <form class="measure center" onSubmit={this.handleSubmit}>
